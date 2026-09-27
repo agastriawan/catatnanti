@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CatatNanti — Catatan &amp; Pengingat Mahasiswa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-icon">📝</span>
+      <h1>CatatNanti</h1>
+    </div>
+    <p class="tagline">Catat hal kecil, jangan sampai lupa.</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Form tambah catatan -->
+    <section class="card form-card">
+      <form id="note-form">
+        <input type="hidden" id="note-id">
+        <div class="form-row">
+          <label for="note-title">Judul</label>
+          <input type="text" id="note-title" placeholder="Contoh: Kumpulkan tugas Statistika" required maxlength="80">
+        </div>
+        <div class="form-row">
+          <label for="note-desc">Detail (opsional)</label>
+          <textarea id="note-desc" placeholder="Catatan tambahan..." maxlength="300"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="note-reminder">Pengingat (opsional)</label>
+          <input type="datetime-local" id="note-reminder">
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn btn-primary">Tambah Catatan</button>
+          <button type="button" id="cancel-edit" class="btn btn-secondary hidden">Batal</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Filter -->
+    <section class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="pending">Belum Selesai</button>
+      <button class="filter-btn" data-filter="done">Selesai</button>
+    </section>
+
+    <!-- Daftar catatan -->
+    <section id="note-list" class="note-list">
+      <!-- diisi oleh JS -->
+    </section>
+
+    <p id="empty-state" class="empty-state hidden">Belum ada catatan. Yuk tambahkan yang pertama! 🎯</p>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>CatatNanti · data tersimpan di browser kamu (localStorage)</p>
+  </footer>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
